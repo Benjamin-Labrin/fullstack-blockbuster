@@ -1,5 +1,6 @@
 package com.labrin.blockbuster.service;
 
+import com.labrin.blockbuster.dto.PeliculaNacionalidadDTO;
 import com.labrin.blockbuster.model.Pelicula;
 import com.labrin.blockbuster.repository.PeliculaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,14 @@ public class PeliculaService {
     public void deletePelicula(int id){
         peliculaRepository.deleteById(id);
 
+    }
+
+    public List<PeliculaNacionalidadDTO> getPeliculasConNacionalidad(){
+        return peliculaRepository.findAll().stream()
+        .map(l -> new PeliculaNacionalidadDTO(
+                l.getTitulo(),
+                l.getDirector().getNacionalidad()
+        ))  
+        .toList();
     }
 }

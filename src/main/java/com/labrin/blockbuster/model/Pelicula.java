@@ -28,12 +28,9 @@ public class Pelicula {
     @NotNull
     private Integer anioEstreno;
 
-    @NotBlank
-    private String director;
+    @NotNull
+    @OneToOne(optional = false)
+    @JoinColumn(name = "director_id", nullable = false)
+    private Director director;
 
-    @NotBlank
-    private String cast;
-
-
-    
 }

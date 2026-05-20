@@ -1,6 +1,7 @@
 package com.labrin.blockbuster.controller;
 
 
+import com.labrin.blockbuster.dto.PeliculaNacionalidadDTO;
 import com.labrin.blockbuster.model.Pelicula;
 import com.labrin.blockbuster.service.PeliculaService;
 import jakarta.validation.Valid;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -63,4 +65,16 @@ public class PeliculaController {
         return ResponseEntity.noContent().build();
 
     }
+
+    @GetMapping("/con-nacionalidad")
+    public ResponseEntity<List<PeliculaNacionalidadDTO>> peliculasPorNacionalidad(){
+        System.out.println("[PeliculaController] -> peliculasPorNacionalidad");
+        return ResponseEntity.ok(peliculaService.getPeliculasConNacionalidad());
+
+    }
+      
+
+
+
+
 }
