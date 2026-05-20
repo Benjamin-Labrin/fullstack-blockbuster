@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(WebClientResponseException.class)
     public ResponseEntity<ApiError> handleWebClientError(WebClientResponseException ex){
-        if (ex.getStatusCode().valude() == 404){
+        if (ex.getStatusCode().value() == 404){
             ApiError error = new ApiError(404, "ID no encontrado en Open Library", ex.getMessage());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
         }

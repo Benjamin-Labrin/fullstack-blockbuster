@@ -15,7 +15,7 @@ public class WebClientConfig {
 
     @Bean
     public WebClient weatherWebClient(){
-        return WebCLient.builder()
+        return WebClient.builder()
             .baseUrl(openMateoBaseUrl)
             .defaultHeader("Accept", "application/json")
             .build();

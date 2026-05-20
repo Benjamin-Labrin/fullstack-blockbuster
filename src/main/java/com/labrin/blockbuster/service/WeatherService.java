@@ -4,7 +4,7 @@ import com.labrin.blockbuster.dto.WeatherDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebCLient;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 public class WeatherService {
@@ -13,7 +13,7 @@ public class WeatherService {
     @Qualifier("weatherWebClient")
     private WebClient weatherWebClient;
 
-    public WeatherDTO obtenerClima(double latitude, double longuitude){
+    public WeatherDTO obtenerClima(double latitude, double longitude){
         return weatherWebClient.get()
                 .uri(uriBuilder -> uriBuilder
                     .path("/v1/forecast")
