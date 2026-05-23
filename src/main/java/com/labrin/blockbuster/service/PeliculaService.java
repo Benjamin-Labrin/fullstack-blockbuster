@@ -29,10 +29,12 @@ public class PeliculaService {
     }
 
     public Pelicula updatePelicula(Pelicula pelicula) {
-        if (peliculaRepository.existsById(pelicula.getId())){
+        if (!peliculaRepository.existsById(pelicula.getId())){
             return null;
         }
         return peliculaRepository.save(pelicula);
+
+        
     }
 
     public void deletePelicula(int id){

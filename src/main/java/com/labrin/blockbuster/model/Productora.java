@@ -2,7 +2,6 @@ package com.labrin.blockbuster.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,9 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name= "Directores")
+@Table(name= "Productoras")
 
-public class Director {
+
+public class Productora {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,5 @@ public class Director {
 
     @NotBlank
     private String nombre;
-
-    @NotNull
-    private Integer edad;
-
-    @NotBlank
-    private String nacionalidad;
-   
+    
 }

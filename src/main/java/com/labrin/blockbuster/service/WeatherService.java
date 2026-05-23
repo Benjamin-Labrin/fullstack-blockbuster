@@ -19,7 +19,7 @@ public class WeatherService {
                     .path("/v1/forecast")
                     .queryParam("latitude", latitude)
                     .queryParam("longitude", longitude)
-                    .queryParam("curret_weather", true)
+                    .queryParam("current_weather", true)
                     .build())
                 
                 .retrieve()

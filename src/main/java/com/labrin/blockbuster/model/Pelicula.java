@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "peliculas")
+@Table(name = "Peliculas")
 
 public class Pelicula {
 
@@ -22,14 +22,16 @@ public class Pelicula {
     @NotBlank
     private String titulo;
 
-    @NotBlank
-    private String productora;
+    @NotNull
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "productora_id", nullable = false)
+    private Productora productora;
 
     @NotNull
-    private Integer anioEstreno;
+    private Integer fechaEstreno;
 
     @NotNull
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "director_id", nullable = false)
     private Director director;
 
