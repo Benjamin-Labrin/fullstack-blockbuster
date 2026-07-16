@@ -16,7 +16,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\",\r\n  \"role\": \"ROLE_ADMIN\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -24,7 +24,7 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "raw": "{{baseUrl}}/api/v1/auth/register",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -32,7 +32,7 @@
                 "api",
                 "v1",
                 "auth",
-                "login"
+                "register"
               ]
             }
           },
@@ -91,9 +91,21 @@
       "item": [
         {
           "name": "Listar driectores",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "{{baseUrl}}/api/v1/directores",
               "host": [
@@ -163,7 +175,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"nombre\": \"Antoine Fuqua\",\r\n  \"edad\": 60,\r\n  \"nacionalidad\": \"Estadounidense\"\r\n}",
+              "raw": "{\r\n  \"nombre\": \"Antoine Fuqua\",\r\n  \"edad\": 61,\r\n  \"nacionalidad\": \"Estadounidense\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -236,7 +248,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2026,\r\n  \"director\": {\r\n    \"id\": 2\r\n  },\r\n  \"productora\":{\r\n    \"id\": 2\r\n  }\r\n}",
+              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2026,\r\n  \"director\": {\r\n    \"id\": 1\r\n  },\r\n  \"productora\":{\r\n    \"id\": 1\r\n  }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -284,7 +296,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2026,\r\n  \"director\": {\r\n    \"id\": 1\r\n  },\r\n  \"productora\":{\r\n    \"id\": 1\r\n  }\r\n}",
+              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2025,\r\n  \"director\": {\r\n    \"id\": 1\r\n  },\r\n  \"productora\":{\r\n    \"id\": 1\r\n  }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -353,9 +365,21 @@
       "item": [
         {
           "name": "Listar productoras",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "{{baseUrl}}/api/v1/productoras",
               "host": [
@@ -525,10 +549,48 @@
       ]
     }
   ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
   "variable": [
     {
       "key": "baseUrl",
       "value": ""
+    },
+    {
+      "key": "auth_secret_0ny9",
+      "secret": true
     }
   ]
 }
