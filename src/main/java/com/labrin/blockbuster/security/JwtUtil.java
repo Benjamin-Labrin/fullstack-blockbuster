@@ -23,8 +23,7 @@ public class JwtUtil {
 Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
 
-
-    public String generatoToken(String username, String role){
+    public String generateToken(String username, String role){
         return Jwts.builder()   
                 .subject(username)
                 .claim("role", role)

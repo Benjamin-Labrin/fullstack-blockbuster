@@ -7,6 +7,86 @@
   },
   "item": [
     {
+      "name": "Autenticacion",
+      "item": [
+        {
+          "name": "Registrar Usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var json = pm.response.json();\r",
+                  "if (json.token) {\r",
+                  "    pm.environment.set('token', json.token);\r",
+                  "    console.log('Token guardado en la variable de environment {{token}}');\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Directores",
       "item": [
         {
@@ -15,11 +95,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/directores",
+              "raw": "{{baseUrl}}/api/v1/directores",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -44,11 +123,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/directores",
+              "raw": "{{baseUrl}}/api/v1/directores",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -64,11 +142,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/directores/1",
+              "raw": "{{baseUrl}}/api/v1/directores/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -94,11 +171,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/directores/1",
+              "raw": "{{baseUrl}}/api/v1/directores/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -115,11 +191,10 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/directores/1",
+              "raw": "{{baseUrl}}/api/v1/directores/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -141,11 +216,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas",
+              "raw": "{{baseUrl}}/api/v1/peliculas",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -162,7 +236,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2026,\r\n  \"director\": {\r\n    \"id\": 1\r\n  },\r\n  \"productora\":{\r\n    \"id\": 1\r\n  }\r\n}",
+              "raw": "{\r\n  \"titulo\": \"Michael\",\r\n  \"fechaEstreno\": 2026,\r\n  \"director\": {\r\n    \"id\": 2\r\n  },\r\n  \"productora\":{\r\n    \"id\": 2\r\n  }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -170,11 +244,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas",
+              "raw": "{{baseUrl}}/api/v1/peliculas",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -190,11 +263,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas/1",
+              "raw": "{{baseUrl}}/api/v1/peliculas/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -220,11 +292,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas/1",
+              "raw": "{{baseUrl}}/api/v1/peliculas/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -241,11 +312,10 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas/1",
+              "raw": "{{baseUrl}}/api/v1/peliculas/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -262,11 +332,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/peliculas/con-nacionalidad",
+              "raw": "{{baseUrl}}/api/v1/peliculas/con-nacionalidad",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -288,11 +357,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/productoras",
+              "raw": "{{baseUrl}}/api/v1/productoras",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -317,11 +385,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/productoras",
+              "raw": "{{baseUrl}}/api/v1/productoras",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -337,11 +404,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/productoras/1",
+              "raw": "{{baseUrl}}/api/v1/productoras/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -367,11 +433,10 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/api/v1/productoras/1",
+              "raw": "{{baseUrl}}/api/v1/productoras/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -388,11 +453,10 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/productoras/1",
+              "raw": "{{baseUrl}}/api/v1/productoras/1",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -414,11 +478,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/clima",
+              "raw": "{{baseUrl}}/api/v1/clima",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -434,11 +497,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "localhost:8080/api/v1/clima?lat=-38.73&lon=-72.59",
+              "raw": "{{baseUrl}}/api/v1/clima?lat=-38.73&lon=-72.59",
               "host": [
-                "localhost"
+                "{{baseUrl}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "v1",
@@ -461,6 +523,12 @@
           "response": []
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
     }
   ]
 }
